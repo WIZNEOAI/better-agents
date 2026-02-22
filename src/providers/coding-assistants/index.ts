@@ -15,6 +15,7 @@ export type MCPConfigFile = {
         type?: "stdio";
         command: string;
         args?: string[];
+        env?: Record<string, string>;
       }
     | {
         type: "http";
@@ -55,12 +56,11 @@ export interface CodingAssistantProvider {
 }
 
 const PROVIDERS: Record<CodingAssistant, CodingAssistantProvider> = {
-  kilocode: KilocodeCodingAssistantProvider,
   "claude-code": ClaudeCodingAssistantProvider,
   cursor: CursorCodingAssistantProvider,
+  kilocode: KilocodeCodingAssistantProvider,
   antigravity: AntigravityCodingAssistantProvider,
-  
-    crush: CrushCodingAssistantProvider,
+  crush: CrushCodingAssistantProvider,
   'gemini-cli': GeminiCLICodingAssistantProvider,
   'qwen-code': QwenCodeCodingAssistantProvider,
   none: NoneCodingAssistantProvider,
